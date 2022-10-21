@@ -14,6 +14,7 @@ public class CustomerTest {
 		Customer customerYul = new GoldCustomer(10040, "이율곡");
 		Customer customerKim = new VIPCustomer(10050, "김유신", 12345);
 		GoldCustomer kmj = new GoldCustomer(10060, "김민지");
+		VVIPCustomer PSY = new VVIPCustomer(10070, "박수영", 12346, 7799);
 		
 		customerList.add(customerLee);
 		customerList.add(customerShin);
@@ -21,6 +22,7 @@ public class CustomerTest {
 		customerList.add(customerYul);
 		customerList.add(customerKim);
 	    customerList.add(kmj);
+	    customerList.add(PSY);
 	    
 		System.out.println("====== 고객 정보 출력 =======");
 		
@@ -41,3 +43,4 @@ public class CustomerTest {
 
 // 연습해보기
 // VVIP라는 클래스 설계해보기: 보너스 적립율 15%, 할인율 20%, 전문 상담원, 발렛파킹제공
+// 왜 발렛파킹 안 나오지..

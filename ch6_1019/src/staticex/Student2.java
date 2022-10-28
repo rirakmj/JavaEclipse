@@ -28,6 +28,6 @@ public class Student2 {
 	}
 
 	public static void setSerialNum(int serialNum) {
-		Student2.serialNum = serialNum;.
+		Student2.serialNum = serialNum;
 	}
 }

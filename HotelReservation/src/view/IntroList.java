@@ -32,7 +32,7 @@ import dao.RoomDao3;
 import dao.RoomDao4;
 
 public class IntroList extends JFrame 
-	implements MouseListener, ActionListener{
+	implements MouseListener, ActionListener, Runnable{
 	
 	// Field
 	JLayeredPane layeredPane;
@@ -44,7 +44,7 @@ public class IntroList extends JFrame
 	
 	DefaultTableModel model, model2, model3, model4;
 	public JTable 			  jt, jt2, jt3, jt4;
-	JScrollPane 	  pane, pane2, pane3, pane4;
+	JScrollPane 	         pane, pane2, pane3, pane4;
 	
 	private JPanel panel1_1;
 	private JPanel panel1_2;
@@ -68,7 +68,7 @@ public class IntroList extends JFrame
 	
 	public IntroList() {
 		// JFrame
-		super("숙소, 트립, 장소를 모두 한 곳에서 - 에어비엔비");
+		super("하이무루부시 리조트 예약 관리 시스템");
 		getContentPane().setBackground(Color.WHITE);
 		JFrame window = new JFrame();
 		getContentPane().setLayout(null);
@@ -232,7 +232,7 @@ public class IntroList extends JFrame
 		today.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
 	
 		// 이벤트 연결
-		/*btnCorrect.addActionListener(this);*/
+//     btnCorrect.addActionListener(this);
 //		btnInsert.addActionListener(this);
 		btnDelete.addActionListener(this);
 		btnView.addActionListener(this);
@@ -276,11 +276,7 @@ public class IntroList extends JFrame
 		mDao = new RoomDao(this);
 		int cnt = mDao.deleteMember(csid);
 		this.switchPanels(panel2);
-		/*
-		mDao = new RoomDao(this);
-		int cnt = mDao.deleteMember(csid);
-		this.switchPanels(panel2);
-		*/
+		
 	}
 	
 	public void jtRefresh() {
@@ -318,7 +314,7 @@ public class IntroList extends JFrame
 		colNames = getColumnNames();
 		
 		// db 자료 가져오기
-		RoomDao dao   = new RoomDao();
+		RoomDao dao  = new RoomDao();
 		v 		 	  = dao.getMemberList();
 		model 	 	  = new DefaultTableModel(v, colNames);
 		panel2.setLayout(null);
@@ -643,6 +639,13 @@ public class IntroList extends JFrame
 
 	@Override
 	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void run() {
 		// TODO Auto-generated method stub
 		
 	}

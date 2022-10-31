@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
-//import com.pknu.logpreparedstatementtest.LogPreparedStatement;
+import dao.LogPreparedStatement;
 
 import view.LoginPage;
-import vo.MemberVO;
+import vo.CustomerVO;
 
 public class MemberDao {
 	
@@ -37,33 +37,32 @@ public class MemberDao {
 
 	// 메소드
 	// 한 회원의 정보를 검색
-	public MemberVO getMember(String userid) {
-		MemberVO mem = null; // 한사람 정보 : 1 row
+	public CustomerVO getMember(String csid) {
+		CustomerVO mem = null; // 한사람 정보 : 1 row
 		
 		try {
 			conn = DBConn.getConnection();
-			String sql = "SELECT id, pwd, name, job, gender, intro FROM tmember";
-			sql += " WHERE id = ?"; // ? 뒤에 + 로 연결하지 않도록 한다
+			String sql = "SELECT  fname, lname, email, csid FROM CUSTOMER";
+			sql += " WHERE csid = ?"; // ? 뒤에 + 로 연결하지 않도록 한다
 			
 			lpstmt = new LogPreparedStatement(conn, sql);
-			lpstmt.setString(1, userid);
+			lpstmt.setString(1, csid);
 //			System.out.println(sql);
 //			System.out.println(lpstmt.getQueryString());
 			
 			rs = lpstmt.executeQuery();
 			if(rs.next()) {
-				String id		= rs.getString("id");
-				String pwd		= rs.getString("pwd");
-				String name		= rs.getString("name");
-				String job		= rs.getString("job");
-				String gender	= rs.getString("gender");
-				String intro	= rs.getString("intro");
-//				mem = new MemberVO(id, pwd, name, job, gender, intro);
+				String fname		= rs.getString("fname");
+				String lname		= rs.getString("lname");
+				String email		= rs.getString("email");
+				String csid1		    = rs.getString("csid");
+				String cspwd		    = rs.getString("cspwd");
+				mem = new CustomerVO(csid, cspwd, lname, fname, email);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-//			close();
+			close();
 		}
 		return mem;
 	}
@@ -74,27 +73,25 @@ public class MemberDao {
 		Vector v   = new Vector(); // List<MemberVO> v = new Vector<>();
 		try {
 			conn       = DBConn.getConnection();
-			String sql = "SELECT id, pwd, name, job, gender, intro FROM tmember";
+			String sql = "SELECT  fname, lname, email, csid FROM CUSTOMER";
 			lpstmt     = new LogPreparedStatement(conn, sql);
 			System.out.println(lpstmt);
 			rs		   = lpstmt.executeQuery();
 			while(rs.next()) {
-				String id 	  = rs.getString("id");
-				String pwd    = rs.getString("pwd");
-				String name   = rs.getString("name");
-				String job 	  = rs.getString("job");
-				String gender = rs.getString("gender");
-				String intro  = rs.getString("intro");
+				String fname		= rs.getString("fname");
+				String lname		= rs.getString("lname");
+				String email		= rs.getString("email");
+				String csid		    = rs.getString("csid");
+				String cspwd		    = rs.getString("cspwd");
 //				MemberVO m = new MemberVO(id, pwd, name, job, gender, intro); // 제너릭에서 가능한 코딩
 				
 				// Inner vector : columns 역할
 				Vector m = new Vector();
-				m.add(id);
-				m.add(pwd);
-				m.add(name);
-				m.add(job);
-				m.add(gender);
-				m.add(intro);
+				m.add(fname);
+				m.add(lname);
+				m.add(email);
+				m.add(csid);
+				m.add(cspwd);
 				v.add(m);	// out vector 안에 inner vector 저장
 			}
 			// while문 종료 후 결과(ResultSet → out vector 에 저장)

@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -21,7 +23,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import dao.MemberDao;
-import vo.MemberVO;
+import vo.CustomerVO;
 
 public class LoginPage extends JFrame 
 	implements MouseListener, ActionListener {
@@ -32,13 +34,13 @@ public class LoginPage extends JFrame
 	JPasswordField pwd;
 	JButton btnCheck;
 	
-	MemberVO v;
+//	CustomerVO v; // 사용하지 않음.
 	
-	String id2, pwd2;
+//	String id2, pwd2; // 사용하지 않음.
 	
 	
 	public LoginPage() {
-		super("숙소, 트립, 장소를 모두 한 곳에서 - 에어비엔비");
+		super("하이무루부시 예약 관리 시스템");
 		
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBackground(new Color(255, 255, 255));
@@ -76,9 +78,8 @@ public class LoginPage extends JFrame
 		getContentPane().add(pbtn7);
 				
 		// 화면 상단에 제목 추가
-		JLabel lbl1 = new JLabel("<html><b style= \"color:#484848\">에어비앤비 호스트를<br>위한 프로그램입니다</b><html>");
+		JLabel lbl1 = new JLabel("<html><b style= \"color:#484848\">하이무루부시<br>예약 현황</b><html>");
 		lbl1.setBackground(new Color(255, 255, 255));
-		
 		lbl1.setVerticalAlignment(SwingConstants.TOP);
 		lbl1.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		pbtn1.add(lbl1, "name_7088402692029");
@@ -128,8 +129,7 @@ public class LoginPage extends JFrame
 		pwd = new JPasswordField(12);
 		pwd.setText("비밀번호");
 		pwd.setFont(new Font("맑은 고딕", Font.PLAIN, 16));
-		pwd.setForeground(Color.LIGHT_GRAY);
-		
+		pwd.setForeground(Color.LIGHT_GRAY);		
 		pwd.addFocusListener(new FocusListener() {
 
 			@Override
@@ -161,14 +161,14 @@ public class LoginPage extends JFrame
 		pbtn6.add(btnCheck);
 		
 		// 이미지 추가
-	    ImageIcon pic1 = new ImageIcon("./image/airbnb01.png");
-	    pbtn7.add(new JLabel(pic1));
-	    this.add(pbtn7);
-	    this.pack();
+//	    ImageIcon pic1 = new ImageIcon("./image/airbnb01.png");
+//	    pbtn7.add(new JLabel(pic1));
+//	    this.add(pbtn7);
+//	    this.pack();
 		
 		// 이벤트 연결
 		btnCheck.addActionListener(this);
-		
+	
 		// Default
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(473, 418);
@@ -177,10 +177,9 @@ public class LoginPage extends JFrame
 		this.setVisible(true);
 		
 		// Autofocus off
-//		getContentPane().requestFocusInWindow();
+    	getContentPane().requestFocusInWindow();
 		this.requestFocusInWindow();		
 	}
-
 
 	public static void main(String[] args) {
 		new LoginPage();
@@ -188,54 +187,65 @@ public class LoginPage extends JFrame
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		Object eventBtn = e.getSource();
+		if(eventBtn==btnCheck) {
+			dispose();
+			new IntroList();
+	}
+		
 		String value1 = id.getText();
 		String value2 = pwd.getText();
+//		
+//		MemberDao dao = new MemberDao();
+//		v 		 	  = dao.getMember(value1);
 		
-		MemberDao dao = new MemberDao();
-		v 		 	  = dao.getMember(value1);
+//		id2  = v.getId();
+//		pwd2  = v.getPwd();
 		
-		id2  = v.getId();
-		pwd2  = v.getPwd();
+//		if( e.getSource() == btnCheck ) {
+//				if (value1.equals(id2)) {
+//					if(value2.equals(pwd2)) {
+//						new IntroList();
+//						dispose();
+//						Thread sta = new Thread(new IntroList());
+//					} else {
+//						new JOptionPane().showMessageDialog(this, "비밀번호가 일치하지 않습니다.", "오류", JOptionPane.ERROR_MESSAGE);
+//					}
+//				} else if(value2.equals(pwd2)) {
+//					new JOptionPane().showMessageDialog(this, "아이디가 일치하지 않습니다.", "오류", JOptionPane.ERROR_MESSAGE);
+//				} else {
+//					new JOptionPane().showMessageDialog(this, "아이디와 비밀번호가 일치하지 않습니다.", "오류", JOptionPane.ERROR_MESSAGE);
+//				}
+//		}
 		
-		if( e.getSource() == btnCheck ) {
-				if (value1.equals(id2)) {
-					if(value2.equals(pwd2)) {
-						new IntroList();
-					} else {
-						new JOptionPane().showMessageDialog(this, "비밀번호가 일치하지 않습니다.", "오류", JOptionPane.ERROR_MESSAGE);
-					}
-				} else if(value2.equals(pwd2)) {
-					new JOptionPane().showMessageDialog(this, "아이디가 일치하지 않습니다.", "오류", JOptionPane.ERROR_MESSAGE);
-				} else {
-					new JOptionPane().showMessageDialog(this, "아이디와 비밀번호가 일치하지 않습니다.", "오류", JOptionPane.ERROR_MESSAGE);
-				}
-		}
 		
+//		try {
+//			if( e.getSource() == btnCheck ) {
+//					if (value1.equals(id2)) {
+//						if(value2.equals(pwd2)) {
+//							new IntroList();
+//							dispose();
+//							Thread sta = new Thread(new IntroList());
+//						} else {
+//							new JOptionPane().showMessageDialog(this, "비밀번호가 일치하지 않습니다.", "오류", JOptionPane.ERROR_MESSAGE);
+//						}
+//					} else if(value2.equals(pwd2)) {
+//						new JOptionPane().showMessageDialog(this, "아이디가 일치하지 않습니다.", "오류", JOptionPane.ERROR_MESSAGE);
+//					} else {
+//						new JOptionPane().showMessageDialog(this, "아이디와 비밀번호가 일치하지 않습니다.", "오류", JOptionPane.ERROR_MESSAGE);
+//					}
+//			}
+//		} catch (Exception e1) {
+//			System.out.println("에러가 발생했습니다");
+//		}
 		
-		/*try {
+		try {
 			if( e.getSource() == btnCheck ) {
-					if (value1.equals(id2)) {
-						if(value2.equals(pwd2)) {
-							new IntroList();
-						} else {
-							new JOptionPane().showMessageDialog(this, "비밀번호가 일치하지 않습니다.", "오류", JOptionPane.ERROR_MESSAGE);
-						}
-					} else if(value2.equals(pwd2)) {
-						new JOptionPane().showMessageDialog(this, "아이디가 일치하지 않습니다.", "오류", JOptionPane.ERROR_MESSAGE);
-					} else {
-						new JOptionPane().showMessageDialog(this, "아이디와 비밀번호가 일치하지 않습니다.", "오류", JOptionPane.ERROR_MESSAGE);
-					}
-			}
-		} catch (Exception e1) {
-			System.out.println("에러가 발생했습니다");
-		}*/
-		
-		/*try {
-			if( e.getSource() == btnCheck ) {
-				if (value1.equals("admin")) {
+				    if(value1.equals("admin")) {
 					if(value2.equals("1234")) {
-						new IntroList();
 						dispose();
+//						Thread sta = new Thread(new IntroList());
+//						sta.start();
 					} else {
 						new JOptionPane().showMessageDialog(this, "비밀번호가 일치하지 않습니다.", "오류", JOptionPane.ERROR_MESSAGE);
 					}
@@ -247,7 +257,7 @@ public class LoginPage extends JFrame
 			}
 		} catch (Exception e1) {
 			System.out.println("에러가 발생했습니다");
-		}*/	
+		}	
 	}
 
 

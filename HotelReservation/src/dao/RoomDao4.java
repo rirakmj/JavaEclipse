@@ -36,7 +36,7 @@ public class RoomDao4 {
 		
 		try {
 			conn = DBConn.getConnection();
-			String sql = "select csid, email, lname, fname from customer";
+			String sql = "select csid, email, lname, fname from CUSTOMER";
 			sql += " WHERE id = ?";
 			
 			lpstmt = new LogPreparedStatement(conn, sql);
@@ -67,7 +67,7 @@ public class RoomDao4 {
 		try {
 			conn       = DBConn.getConnection();
 			String sql = "select csid, fname, lname, email"; 
-			sql += " from customer";
+			sql += " from CUSTOMER";
 			lpstmt     = new LogPreparedStatement(conn, sql);
 
 			// sql문 확인

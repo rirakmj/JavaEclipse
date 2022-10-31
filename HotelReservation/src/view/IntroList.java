@@ -33,7 +33,7 @@ import dao.RoomDao4;
 import vo.RoomVO;
 
 public class IntroList extends JFrame 
-	implements MouseListener, ActionListener {
+	implements MouseListener, ActionListener, Runnable {
 	
 	// Field
 	JLayeredPane layeredPane;
@@ -676,6 +676,13 @@ public class IntroList extends JFrame
 
 	@Override
 	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void run() {
 		// TODO Auto-generated method stub
 		
 	}

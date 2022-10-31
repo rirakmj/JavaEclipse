@@ -30,9 +30,10 @@ import dao.RoomDao;
 import dao.RoomDao2;
 import dao.RoomDao3;
 import dao.RoomDao4;
+import vo.RoomVO;
 
 public class IntroList extends JFrame 
-	implements MouseListener, ActionListener, Runnable{
+	implements MouseListener, ActionListener {
 	
 	// Field
 	JLayeredPane layeredPane;
@@ -54,9 +55,10 @@ public class IntroList extends JFrame
 	private JPanel panel3_2;
 	private JPanel panel4_1;
 	private JPanel panel4_2;
-	private JButton btnCorrect;
+//	private JButton btnCorrect;
+//	private JButton btnCorrect2;
 	private JButton btnDelete;
-	private JButton btnInsert;
+//	private JButton btnInsert;
 	private JButton btnView;
 	
 	private static final String dateFormat = " yyyy-MM-dd";
@@ -210,8 +212,7 @@ public class IntroList extends JFrame
 				btn4.setForeground(SystemColor.menuText);
 		 		btn4.setBackground(new Color(255, 255, 255));
 		 		btn4.setBorderPainted(true);
-			}
- 			
+			}		
  		});
 		getContentPane().add(btn4);
 		
@@ -232,8 +233,9 @@ public class IntroList extends JFrame
 		today.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
 	
 		// 이벤트 연결
-//     btnCorrect.addActionListener(this);
-//		btnInsert.addActionListener(this);
+//    btnCorrect.addActionListener(this);
+//    btnCorrect2.addActionListener(this);
+//	    btnInsert.addActionListener(this);
 		btnDelete.addActionListener(this);
 		btnView.addActionListener(this);
 		
@@ -250,7 +252,7 @@ public class IntroList extends JFrame
 	}
 	
 	
-// Methods -----------------------------------------------------------
+// 메소드
 	
 	private String now() {
 		Calendar cal = Calendar.getInstance();
@@ -373,11 +375,28 @@ public class IntroList extends JFrame
  		});
 		panel2.add(btnDelete);
 		
-		/*// '예약 수정' 버튼 추가
-		btnCorrect = new JButton("예약 수정");
-		btnCorrect.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		btnCorrect.setBounds(0, 605, 110, 47);
-		panel2.add(btnCorrect);*/
+		// '예약 수정' 버튼 추가
+//		btnCorrect = new JButton("예약 수정");
+//		btnCorrect.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+//		btnCorrect.setBounds(0, 605, 110, 47);
+//		btnCorrect.setBorderPainted(true);
+//		btnCorrect.addFocusListener(new FocusListener() {
+//
+//			@Override
+//			public void focusGained(FocusEvent e) {
+//				btnDelete.setForeground(SystemColor.menuText);
+//				btnDelete.setBackground(SystemColor.inactiveCaption);
+//				btnDelete.setBorderPainted(false);
+//			}
+//
+//			@Override
+//			public void focusLost(FocusEvent e) {
+//				btnDelete.setForeground(SystemColor.menuText);
+//				btnDelete.setBackground(new Color(255, 255, 255));
+//				btnDelete.setBorderPainted(true);
+//			}
+//		});
+//		panel2.add(btnCorrect);
 	}
 
 
@@ -410,8 +429,8 @@ public class IntroList extends JFrame
 		
 		// db 자료 가져오기
 		RoomDao2 dao2   = new RoomDao2();
-		v2 		 	  = dao2.getMemberList();
-		model2 	 	  = new DefaultTableModel(v2, colNames2);
+		v2 		 	                = dao2.getMemberList();
+		model2 	 	            = new DefaultTableModel(v2, colNames2);
 		panel3.setLayout(null);
 		
 		// panel3_1 설정
@@ -440,13 +459,31 @@ public class IntroList extends JFrame
 		jt2.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		pane2 = new JScrollPane(jt2);
 		panel3_1.add(pane2);
-		
-		/*// '숙박 수정' 버튼 추가
-		btnCorrect2 = new JButton("\uC219\uBC15 \uC218\uC815");
-		btnCorrect2.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		btnCorrect2.setBounds(0, 605, 110, 47);
-		panel3.add(btnCorrect2);*/
 	}
+		
+		// '숙박 수정' 버튼 추가
+//		btnCorrect2 = new JButton("\uC219\uBC15 \uC218\uC815");
+//		btnCorrect2.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+//		btnCorrect2.setBounds(0, 605, 110, 47);
+//		btnCorrect.setBorderPainted(true);
+//		btnCorrect.addFocusListener(new FocusListener() {
+//
+//			@Override
+//			public void focusGained(FocusEvent e) {
+//				btnDelete.setForeground(SystemColor.menuText);
+//				btnDelete.setBackground(SystemColor.inactiveCaption);
+//				btnDelete.setBorderPainted(false);
+//			}
+//
+//			@Override
+//			public void focusLost(FocusEvent e) {
+//				btnDelete.setForeground(SystemColor.menuText);
+//				btnDelete.setBackground(new Color(255, 255, 255));
+//				btnDelete.setBorderPainted(true);
+//			}
+//		});
+//		panel3.add(btnCorrect2);
+//	}
 	
 // 3) ----------------------------------------------------------------
 // '객실 확인' 버튼 누르면 나오는 화면
@@ -471,8 +508,8 @@ public class IntroList extends JFrame
 				
 		// db 자료 가져오기
 		RoomDao3 dao3 = new RoomDao3();
-		v3 		 	  = dao3.getMemberList();
-		model3 	 	  = new DefaultTableModel(v3, colNames3);
+		v3 		 	              = dao3.getMemberList();
+		model3 	 	          = new DefaultTableModel(v3, colNames3);
 		panel4.setLayout(null);
 		
 		// panel4_1 설정
@@ -536,8 +573,8 @@ public class IntroList extends JFrame
 	public Vector getColumnNames4() {
 		Vector<String> colNames4 = new Vector<>();
 		colNames4.add("고객 ID");
-		colNames4.add("이름");
 		colNames4.add("성");
+		colNames4.add("이름");
 		colNames4.add("이메일");
 		return colNames4;
 	}
@@ -639,13 +676,6 @@ public class IntroList extends JFrame
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void run() {
 		// TODO Auto-generated method stub
 		
 	}

@@ -161,10 +161,10 @@ public class LoginPage extends JFrame
 		pbtn6.add(btnCheck);
 		
 		// 이미지 추가
-//	    ImageIcon pic1 = new ImageIcon("./image/airbnb01.png");
-//	    pbtn7.add(new JLabel(pic1));
-//	    this.add(pbtn7);
-//	    this.pack();
+	    ImageIcon pic1 = new ImageIcon("./img/airbnb01.png");
+	    pbtn7.add(new JLabel(pic1));
+	    this.add(pbtn7);
+	    this.pack();
 		
 		// 이벤트 연결
 		btnCheck.addActionListener(this);
@@ -195,30 +195,13 @@ public class LoginPage extends JFrame
 		
 		String value1 = id.getText();
 		String value2 = pwd.getText();
-//		
+	
 //		MemberDao dao = new MemberDao();
 //		v 		 	  = dao.getMember(value1);
 		
 //		id2  = v.getId();
 //		pwd2  = v.getPwd();
-		
-//		if( e.getSource() == btnCheck ) {
-//				if (value1.equals(id2)) {
-//					if(value2.equals(pwd2)) {
-//						new IntroList();
-//						dispose();
-//						Thread sta = new Thread(new IntroList());
-//					} else {
-//						new JOptionPane().showMessageDialog(this, "비밀번호가 일치하지 않습니다.", "오류", JOptionPane.ERROR_MESSAGE);
-//					}
-//				} else if(value2.equals(pwd2)) {
-//					new JOptionPane().showMessageDialog(this, "아이디가 일치하지 않습니다.", "오류", JOptionPane.ERROR_MESSAGE);
-//				} else {
-//					new JOptionPane().showMessageDialog(this, "아이디와 비밀번호가 일치하지 않습니다.", "오류", JOptionPane.ERROR_MESSAGE);
-//				}
-//		}
-		
-		
+
 //		try {
 //			if( e.getSource() == btnCheck ) {
 //					if (value1.equals(id2)) {

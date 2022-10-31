@@ -5,6 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
 
+import vo.RoomVO;
+//import com.pknu.room.dao.LogPreparedStatement;
+
 public class RoomDao3 {
 	
 	// Field
@@ -59,7 +62,7 @@ public class RoomDao3 {
 		return mem;
 	}*/
 	
-	// 여러명의 예약정보를 검색
+	// 객실 보기
 	public Vector getMemberList() {
 		Vector v3   = new Vector();
 		try {

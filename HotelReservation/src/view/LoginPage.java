@@ -3,12 +3,14 @@ package view;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.security.PublicKey;
@@ -23,11 +25,11 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import dao.MemberDao;
+import dao.MemberDAO;
 import vo.CustomerVO;
 
 public class LoginPage extends JFrame 
-	implements MouseListener, ActionListener {
+	implements MouseListener, ActionListener, KeyListener {
 	
 	JPanel pbtn1, pbtn2, pbtn3, pbtn4, pbtn5, pbtn6, pbtn7;
 	
@@ -170,6 +172,7 @@ public class LoginPage extends JFrame
 		
 		// 이벤트 연결
 		btnCheck.addActionListener(this);
+		btnCheck.addKeyListener(this);
 	
 		// Default
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -186,6 +189,15 @@ public class LoginPage extends JFrame
 	public static void main(String[] args) {
 		new LoginPage();
 	}
+    
+	@Override
+	public void keyPressed(KeyEvent e) { 
+        int key = e.getKeyCode();
+        if (key == KeyEvent.VK_ENTER) {
+        Toolkit.getDefaultToolkit().beep(); 
+        btnCheck.doClick();
+        }
+    }
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -289,6 +301,18 @@ public class LoginPage extends JFrame
 
 	@Override
 	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
 	}

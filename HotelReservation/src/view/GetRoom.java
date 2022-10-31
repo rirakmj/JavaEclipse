@@ -154,49 +154,49 @@ public class GetRoom extends JFrame
 		pbtn1.add(lbl1);
 		
 		// 이미지 1 추가
-		ImageIcon pic1 = new ImageIcon("./image/airbnb02_1.jpg");
+		ImageIcon pic1 = new ImageIcon("./img/standard_01.jpeg");
 	    pbtn2.add(new JLabel(pic1));
 	    this.add(pbtn2);
 	    this.pack();
 	    
 	    // 이미지 2 추가
-		ImageIcon pic2 = new ImageIcon("./image/airbnb02_2.jpg");
+		ImageIcon pic2 = new ImageIcon("./img/standard_02.jpeg");
 	    pbtn3.add(new JLabel(pic2));
 	    this.add(pbtn3);
 	    this.pack();
 	    
 	    // 이미지 3 추가
-	    ImageIcon pic3 = new ImageIcon("./image/airbnb03_1.jpg");
+	    ImageIcon pic3 = new ImageIcon("./img/premiumdeluxe_01.jpeg");
 	    pbtn4.add(new JLabel(pic3));
 	    this.add(pbtn4);
 	    this.pack();
 	    
 	    // 이미지 4 추가
-	    ImageIcon pic4 = new ImageIcon("./image/airbnb03_2.jpg");
+	    ImageIcon pic4 = new ImageIcon("./img/premiumdeluxe_02.jpeg");
 	    pbtn5.add(new JLabel(pic4));
 	    this.add(pbtn5);
 	    this.pack();
 	    
 	    // 이미지 5 추가
-	    ImageIcon pic5 = new ImageIcon("./image/airbnb04_1.jpg");
+	    ImageIcon pic5 = new ImageIcon("./img/oceanviewdeluxe_01.jpeg");
 	    pbtn6.add(new JLabel(pic5));
 	    this.add(pbtn6);
 	    this.pack();
 	    
 	    // 이미지 6 추가
-	    ImageIcon pic6 = new ImageIcon("./image/airbnb04_2.jpg");
+	    ImageIcon pic6 = new ImageIcon("./img/oceanviewdeluxe_02.jpeg");
 	    pbtn7.add(new JLabel(pic6));
 	    this.add(pbtn7);
 	    this.pack();
 	    
 	    // 이미지 7 추가
-	    ImageIcon pic7 = new ImageIcon("./image/airbnb04_3.jpg");
+	    ImageIcon pic7 = new ImageIcon("./img/oceanviewsuite_01.jpeg");
 	    pbtn8.add(new JLabel(pic7));
 	    this.add(pbtn8);
 	    this.pack();
 	    
 	    // 이미지 8 추가
-	    ImageIcon pic8 = new ImageIcon("./image/airbnb04_4.jpg");
+	    ImageIcon pic8 = new ImageIcon("./img/oceanviewsuite_02.jpeg");
 	    pbtn9.add(new JLabel(pic8));
 	    this.add(pbtn9);
 	    this.pack();

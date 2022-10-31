@@ -19,7 +19,7 @@ public class CustomerVO {
 		this.cspwd 	= cspwd;
 		this.fname 	= fname;
 		this.lname 	= lname;
-		this.email = email;
+		this.email  = email;
 	}
 
 	// Getter : 내 클래스의 정보(Fields)를 외부로 내보냄

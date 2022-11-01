@@ -15,3 +15,10 @@
    4) 객실 보기 및 선택 기능은 관리자보다는 고객에게 필요한 기능이므로, 관리자 페이지와 고객 페이지를 병합한 프로그램을 만들어 보고 싶다 (로그인 계정에 따른 기능 구분).
    5) 코드가 중복이 많고 정리되어 있지 않다.
 7. 느낀점: 앞으로도 크고 작은 프로젝트를 통해 코딩 기술을 점차적으로 익혀야겠다고 생각했다. 웹이나 앱 상의 버튼 하나 만드는 데 이렇게 정교한 작업이 들어가야 한다는 것이 매우 놀라웠다.
+
+![image](https://user-images.githubusercontent.com/114123373/199156676-f69d4bfd-2d4f-4e2a-8ebf-af38e382f541.png)
+![image](https://user-images.githubusercontent.com/114123373/199156311-d34782d2-8633-432f-886b-54a6065abeed.png)
+![image](https://user-images.githubusercontent.com/114123373/199156442-019104c6-3bc1-4439-8ffd-db0c3b311dd6.png)
+![image](https://user-images.githubusercontent.com/114123373/199156485-820ae7e2-2930-40f8-8224-1f87407c8f8e.png)
+![image](https://user-images.githubusercontent.com/114123373/199156532-dab87a28-60b4-4cb2-b724-9eadbb5ff6de.png)
+![image](https://user-images.githubusercontent.com/114123373/199156591-d0a24395-1ea0-400e-9cb4-7333d91c6057.png)

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBConn {
 	private static String driver = "oracle.jdbc.driver.OracleDriver";
-	private static String url 	 = "jdbc:oracle:thin:@localhost:1521:xe";
+	private static String url 	 = "jdbc:oracle:thin:@10.100.102.41:1521:xe";
 	private static String dbUid  = "scott";
 	private static String dbPwd  = "tiger";
 	
